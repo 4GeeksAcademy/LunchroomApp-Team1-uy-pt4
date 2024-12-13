@@ -389,7 +389,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Lunes</h2>
               <div className="row">
-                {store.menuLunes.map((menu) => (
+                {store.menuLunes?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu}
                   //   onClick={() => {
                   //     handleClick(menu);
@@ -414,7 +414,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Martes</h2>
               <div className="row">
-                {store.menuMartes.map((menu) => (
+                {store.menuMartes?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu} />
                 ))}
               </div>
@@ -434,7 +434,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Miércoles</h2>
               <div className="row">
-                {store.menuMiercoles.map((menu) => (
+                {store.menuMiercoles?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu} />
                 ))}
               </div>
@@ -454,7 +454,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Jueves</h2>
               <div className="row">
-                {store.menuJueves.map((menu) => (
+                {store.menuJueves?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu} />
                 ))}
               </div>
@@ -474,7 +474,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Viernes</h2>
               <div className="row">
-                {store.menuViernes.map((menu) => (
+                {store.menuViernes?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu} />
                 ))}
               </div>
@@ -494,7 +494,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}>Sábado</h2>
               <div className="row">
-                {store.menuSabado.map((menu) => (
+                {store.menuSabado?.map((menu) => (
                   <CardMenu key={menu.id} menu={menu} />
                 ))}
               </div>
@@ -526,7 +526,7 @@ return (
             <div className="mb-5">
               <h2 className="text-center" style={{ color: "rgb(56, 101, 229)" }}></h2>
               <div className="d-flex flex-wrap justify-content-center">
-                {store.optionCocaCola.map((option) => (
+                {store.optionCocaCola?.map((option) => (
                   <div className="m-2" style={{ flex: "1 0 auto", maxWidth: "200px" }}>
                     <CardOption key={option.id} option={option} />
                   </div>

@@ -125,8 +125,12 @@ def handle_hello():
 @api.route('/menu', methods=['POST'])
 def create_menu():
     body = request.form
-    if not body or "day" not in body or "name" not in body or "description" not in body or "price" not in  body or "img" not in body:
-        raise APIException("Missing name, price, description, or img", status_code=400)
+    required_fields = ["day", "name", "price", "description"]
+
+    for field in required_fields:
+        if field not in body:
+            raise APIException(f'Missing {field}')
+    
     day = body.get("day")
     name = body.get("name")
     description = body.get("description")
@@ -282,7 +286,7 @@ def register():
     )
     db.session.add(new_user)
     db.session.commit()
-    send_signup_email([email])
+    send_singup_email([email])
     return jsonify({"message":"User created successfully"}),201
 
 

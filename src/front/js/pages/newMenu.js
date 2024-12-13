@@ -16,13 +16,15 @@ export const NewMenu = () => {
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setCurrentMenu((prev) => ({ ...prev, [name]: value }));
+        console.log(name, value)
+        setCurrentMenu ({ ...currentMenu, [name]: value });
+
     };
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setCurrentMenu((prev) => ({ ...prev, image: file }));
+            setCurrentMenu({ ...currentMenu, image: file });
         }
     };
 
@@ -32,7 +34,7 @@ export const NewMenu = () => {
             return;
         }
 
-        setMenus((prev) => [...prev, currentMenu]);
+        setMenus([...menus, currentMenu]);
         setCurrentMenu({
             day: "",
             name: "",
@@ -43,10 +45,10 @@ export const NewMenu = () => {
     };
 
     const removeMenu = (index) => {
-        setMenus((prev) => prev.filter((_, i) => i !== index));
+        setMenus( menus.filter((_, i) => i !== index));
     };
 
-    const handlePublishAll = async () => {
+    const handlePublishAll = async (event) => {
         if (menus.length === 0) {
             alert("No hay menús para enviar.");
             return;
@@ -60,7 +62,10 @@ export const NewMenu = () => {
                 formData.append("description", menu.description);
                 formData.append("price", menu.price);
                 formData.append("img", menu.image);
-
+                console.log(menu)
+                if (!menu.image){
+                    alert("Error al enviar la img")
+                }
                 const resp = await fetch(process.env.BACKEND_URL + "api/menu", {
                     method: "POST",
                     body: formData,
