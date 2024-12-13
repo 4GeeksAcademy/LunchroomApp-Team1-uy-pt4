@@ -10,11 +10,8 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     num_funcionario = db.Column(db.Integer, unique=True, nullable=False)
-<<<<<<< HEAD
     is_admin = db.Column(db.Boolean(), unique=False, nullable=True)
-=======
     reserva = db.relationship("Reserva", backref="user")
->>>>>>> 93bb39d7c375e58ed5d0e7006962c5844c08bf4b
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -26,11 +23,7 @@ class User(db.Model):
         self.password = password
         self.is_active = True
         self.num_funcionario = num_funcionario
-<<<<<<< HEAD
         self.is_admin = False
-=======
-        
->>>>>>> 93bb39d7c375e58ed5d0e7006962c5844c08bf4b
 
     def serialize(self):
         return {
@@ -40,11 +33,8 @@ class User(db.Model):
             "email":self.email,
             "is_active":self.is_active,
             "num_funcionario":self.num_funcionario,
-<<<<<<< HEAD
-            "is_admin":self.is_admin
-=======
+            "is_admin":self.is_admin,
             "reserva":[res.id for res in self.reserva] if self.reserva else []
->>>>>>> 93bb39d7c375e58ed5d0e7006962c5844c08bf4b
             
         }
 
