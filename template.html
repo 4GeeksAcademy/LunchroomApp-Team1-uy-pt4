@@ -23,24 +23,27 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://sdk.mercadopago.com/js/v2"></script> 
         
-        <!-- Código para chatbot -->
-        <script>
-            window.addEventListener('mouseover', initLandbot, { once: true });
-            window.addEventListener('touchstart', initLandbot, { once: true });
-            var myLandbot;
-            function initLandbot() {
-              if (!myLandbot) {
-                var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
-                s.addEventListener('load', function() {
-                  myLandbot = new Landbot.Popup({
-                    configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2718739-ZV0TCYXGIAL41D37/index.json',
-                  });
-                });
-                s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(s, x);
-              }
-            }
-            </script>
+        <!-- Código para chatbot -->  
+<script>
+  window.addEventListener('mouseover', initLandbot, { once: true });
+  window.addEventListener('touchstart', initLandbot, { once: true });
+  var myLandbot;
+  function initLandbot() {
+    if (!myLandbot) {
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+      s.addEventListener('load', function () {
+        var myLandbot = new Landbot.Livechat({
+          configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2718739-ZV0TCYXGIAL41D37/index.json',
+        });
+      });
+      s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+  }
+  var siteScope = window;
+  siteScope.document.styleSheets[0].insertRule('.LandbotLivechat { left: 0px !important}');
+
+</script>
     </body>
 </html>
