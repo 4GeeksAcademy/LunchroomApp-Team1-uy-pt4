@@ -3,12 +3,31 @@ import andalogofood from "../../img/anda.png";
 import userlogo from "../../img/user.webp";
 import { Link } from 'react-router-dom';
 import { SelectedMenuData } from "./cardMenu";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const MenuNavbar = (props) => {
 
+    const navigate = useNavigate();
+    
     const { listCart } = useContext(SelectedMenuData);
+
+     const handleCompra = async () => {
+        if (listCart.length === 0) {
+          alert("El carrito está vacío. Por favor, añade productos antes de pagar.");
+        } else {
+          setSpinner(true)
+          setTimeout(() => {
+            setSpinner(false)
+            irAPayment();
+          }, 2000)
+        }
+      };
+
+      const irAPayment = () => {
+        navigate("/payment");
+      };
 
     return (
       <nav className="navbar bg-body-tertiary">
